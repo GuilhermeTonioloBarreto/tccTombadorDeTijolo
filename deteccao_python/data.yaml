@@ -1,0 +1,7 @@
+train: D:/projeto_detecao_objeto/imagens/train/images
+val: D:/projeto_detecao_objeto/imagens/valid/images
+test: D:/projeto_detecao_objeto/imagens/test/images  # Opcional
+
+names:
+  0: tijolo_ok
+  1: tijolo_ruim

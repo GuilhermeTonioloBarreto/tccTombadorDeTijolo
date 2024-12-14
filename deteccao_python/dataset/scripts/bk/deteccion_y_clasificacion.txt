@@ -1,0 +1,38 @@
+# Programa de deteção de tijolos empregando modelo entreinado YOLO
+import cv2
+from ultralytics import YOLO
+
+# Carregar o modelo YOLO entrenado
+modelo_yolo = YOLO("C://Users//dell//Desktop//TCC//tijolo//projeto_detecao_objeto_2//runs//detect//train7//weights//best.pt")
+
+# Configuração da captura de video desde a câmera
+camara = cv2.VideoCapture(1)  # mudar a 1 se tiver múltiples câmeras
+if not camara.isOpened():
+    print("Não foi possivel abrir a câmera.")
+    exit()
+
+try:
+    while True:
+        # Leer o frame da câmara
+        ret, frame = camara.read()
+        if not ret:
+            print("Erro ao capturar o frame.")
+            break
+
+        # Realizar a detecção dos objetos com YOLO
+        resultados_yolo = modelo_yolo.predict(frame)
+        frame_anotado = resultados_yolo[0].plot()
+
+        # Mostrar o frame anotado con las detecciones
+        cv2.imshow("Detecção do tijolo com YOLO", frame_anotado)
+
+        # Presionar 'q' para sair do bucle
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+except Exception as e:
+    print(f"Erro durante a execução: {e}")
+
+# Liberar recursos
+camara.release()
+cv2.destroyAllWindows()

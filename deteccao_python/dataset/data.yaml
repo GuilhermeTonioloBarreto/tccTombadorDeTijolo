@@ -1,0 +1,13 @@
+train: D:/projeto_detecao_objeto_2/dataset/train/images
+val: D:/projeto_detecao_objeto_2/dataset/valid/images
+test: D:/projeto_detecao_objeto_2/dataset/test/images
+
+nc: 2
+names: ['bricks', 'bricks_ruin']
+
+roboflow:
+  workspace: identificao-de-tijolos
+  project: tijolos_image
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/identificao-de-tijolos/tijolos_image/dataset/1
