@@ -1,0 +1,41 @@
+/* Estilo básico do contêiner */
+.date-container {
+    display: flex;
+    flex-direction: row; /* Muda para linha */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 8px;
+    font-family: Arial, sans-serif;
+    margin-right: 10px; /* Adiciona um espaço entre os contêineres */
+}
+
+/* Label */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap;
+}
+
+/* Estilo do campo de data */
+input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+input[type="date"]:hover {
+    border-color: #007bff;
+}
+
+/* Efeito ao focar */
+input[type="date"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.2);
+}

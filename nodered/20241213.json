@@ -1,0 +1,1415 @@
+[
+    {
+        "id": "7a88f7f5.94823",
+        "type": "tab",
+        "label": "S7-LOGO8",
+        "disabled": false,
+        "info": "First Step to adapt S7-node to logo-node\n\nLogoComfort side:\n\nTools-->Ethernet connections\nEnter:\n-LOGO IP adress\n-Subnet Mask\n-Default Gateway\n\nRight Click on Ethernet connections\nAdd Server connection --> S7 Connection\nDouble click on connection1\n\nTick Connect with an Operator Panel (OP)\nIt will change TSAP to 02.00\n\nTick Accept all connection requests (Or you know what you do)\n\nRemote Properties (Client) TSAP: 01.00\n\nRed Node Side:\nMenu (Upper Right)-->Import-->Clipboard\nPaste flow\nImport\n\nIn S7-LOGO8 Flow\nDouble click on LOGO8\nPLC properties (little pencil)\nChange for your Red Node IP adress\n\nDeploy\nNow you could already read all I/O of Logo\n"
+    },
+    {
+        "id": "93d4de9decc017df",
+        "type": "tab",
+        "label": "Comunicacao Mysql",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d09040bc4df741cd",
+        "type": "tab",
+        "label": "Deteccao e classificação de tijolos",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fef6a66586785c38",
+        "type": "tab",
+        "label": "Status máquina",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "78ba90d4f2125baf",
+        "type": "tab",
+        "label": "Peso Tijolo",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c635959e.1e0438",
+        "type": "subflow",
+        "name": "R_TRIG",
+        "info": "Detecta borda de subida.\n",
+        "in": [
+            {
+                "x": 80,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "8c8f9702.5b0bf8"
+                    },
+                    {
+                        "id": "ac7715f.6d889e8"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 940,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "a3c7643a.335008",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "ab1b0b4c.23e",
+        "type": "s7 endpoint",
+        "transport": "iso-on-tcp",
+        "address": "192.168.0.2",
+        "port": "102",
+        "rack": "0",
+        "slot": "2",
+        "localtsaphi": "01",
+        "localtsaplo": "00",
+        "remotetsaphi": "25",
+        "remotetsaplo": "00",
+        "connmode": "tsap",
+        "adapter": "",
+        "busaddr": "",
+        "cycletime": "500",
+        "timeout": "1500",
+        "name": "S7-LOGO8",
+        "vartable": [
+            {
+                "addr": "DB1,X1064.0",
+                "name": "Q01"
+            },
+            {
+                "addr": "DB1,X1064.1",
+                "name": "Q02"
+            },
+            {
+                "addr": "DB1,X1064.2",
+                "name": "Q03"
+            },
+            {
+                "addr": "DB1,X1064.3",
+                "name": "Q04"
+            },
+            {
+                "addr": "DB1,X1064.4",
+                "name": "Q05"
+            },
+            {
+                "addr": "DB1,X1064.5",
+                "name": "Q06"
+            },
+            {
+                "addr": "DB1,X1064.6",
+                "name": "Q07"
+            },
+            {
+                "addr": "DB1,X1064.7",
+                "name": "Q08"
+            },
+            {
+                "addr": "DB1,X1065.0",
+                "name": "Q09"
+            },
+            {
+                "addr": "DB1,X1065.1",
+                "name": "Q10"
+            },
+            {
+                "addr": "DB1,X1065.2",
+                "name": "Q11"
+            },
+            {
+                "addr": "DB1,X1065.3",
+                "name": "Q12"
+            },
+            {
+                "addr": "DB1,X1065.4",
+                "name": "Q13"
+            },
+            {
+                "addr": "DB1,X1065.5",
+                "name": "Q14"
+            },
+            {
+                "addr": "DB1,X1065.6",
+                "name": "Q15"
+            },
+            {
+                "addr": "DB1,X1065.7",
+                "name": "Q16"
+            },
+            {
+                "addr": "DB1,X1066.0",
+                "name": "Q17"
+            },
+            {
+                "addr": "DB1,X1066.1",
+                "name": "Q18"
+            },
+            {
+                "addr": "DB1,X1066.2",
+                "name": "Q19"
+            },
+            {
+                "addr": "DB1,X1066.3",
+                "name": "Q20"
+            },
+            {
+                "addr": "DB1,X1024.0",
+                "name": "I01 AI03"
+            },
+            {
+                "addr": "DB1,X1024.1",
+                "name": "I02 AI04"
+            },
+            {
+                "addr": "DB1,X1024.2",
+                "name": "I03 High Freq"
+            },
+            {
+                "addr": "DB1,X1024.3",
+                "name": "I04 High Freq"
+            },
+            {
+                "addr": "DB1,X1024.4",
+                "name": "I05 High Freq"
+            },
+            {
+                "addr": "DB1,X1024.5",
+                "name": "I06 High Freq"
+            },
+            {
+                "addr": "DB1,X1024.6",
+                "name": "I07 AI01"
+            },
+            {
+                "addr": "DB1,X1024.7",
+                "name": "I08 AI02"
+            },
+            {
+                "addr": "DB1,X1025.0",
+                "name": "I09"
+            },
+            {
+                "addr": "DB1,X1025.1",
+                "name": "I10"
+            },
+            {
+                "addr": "DB1,X1025.2",
+                "name": "I11"
+            },
+            {
+                "addr": "DB1,X1025.3",
+                "name": "I12"
+            },
+            {
+                "addr": "DB1,X1025.4",
+                "name": "I13"
+            },
+            {
+                "addr": "DB1,X1025.5",
+                "name": "I14"
+            },
+            {
+                "addr": "DB1,X1025.6",
+                "name": "I15"
+            },
+            {
+                "addr": "DB1,X1025.7",
+                "name": "I16"
+            },
+            {
+                "addr": "DB1,X1026.0",
+                "name": "I17"
+            },
+            {
+                "addr": "DB1,X1026.1",
+                "name": "I18"
+            },
+            {
+                "addr": "DB1,X1026.2",
+                "name": "I19"
+            },
+            {
+                "addr": "DB1,X1026.3",
+                "name": "I20"
+            },
+            {
+                "addr": "DB1,X1026.4",
+                "name": "I21"
+            },
+            {
+                "addr": "DB1,X1026.5",
+                "name": "I22"
+            },
+            {
+                "addr": "DB1,X1026.6",
+                "name": "I23"
+            },
+            {
+                "addr": "DB1,X1026.7",
+                "name": "I24"
+            },
+            {
+                "addr": "DB1,INT1032",
+                "name": "AI01"
+            },
+            {
+                "addr": "DB1,INT1034",
+                "name": "AI02"
+            },
+            {
+                "addr": "DB1,INT1036",
+                "name": "AI03"
+            },
+            {
+                "addr": "DB1,INT1038",
+                "name": "AI04"
+            },
+            {
+                "addr": "DB1,INT1040",
+                "name": "AI06"
+            },
+            {
+                "addr": "DB1,INT1042",
+                "name": "AI07"
+            },
+            {
+                "addr": "DB1,INT1044",
+                "name": "AI08"
+            },
+            {
+                "addr": "DB1,INT1046",
+                "name": "AI09"
+            },
+            {
+                "addr": "DB1,INT1072",
+                "name": "AQ01"
+            },
+            {
+                "addr": "DB1,INT1074",
+                "name": "AQ02"
+            },
+            {
+                "addr": "DB1,INT1076",
+                "name": "AQ03"
+            },
+            {
+                "addr": "DB1,INT1078",
+                "name": "AQ04"
+            },
+            {
+                "addr": "DB1,INT1080",
+                "name": "AQ05"
+            },
+            {
+                "addr": "DB1,INT1082",
+                "name": "AQ06"
+            },
+            {
+                "addr": "DB1,INT1084",
+                "name": "AQ07"
+            },
+            {
+                "addr": "DB1,INT1086",
+                "name": "AQ08"
+            },
+            {
+                "addr": "DB1,INT1088",
+                "name": "AQ09"
+            },
+            {
+                "addr": "DB1,X1104.0",
+                "name": "M01"
+            },
+            {
+                "addr": "DB1,X1104.1",
+                "name": "M02"
+            },
+            {
+                "addr": "DB1,X1104.2",
+                "name": "M03"
+            },
+            {
+                "addr": "DB1,X1104.3",
+                "name": "M04"
+            },
+            {
+                "addr": "DB1,X1104.4",
+                "name": "M05"
+            },
+            {
+                "addr": "DB1,X1104.5",
+                "name": "M06"
+            },
+            {
+                "addr": "DB1,X1104.6",
+                "name": "M07"
+            },
+            {
+                "addr": "DB1,X1104.7",
+                "name": "M08 Start"
+            },
+            {
+                "addr": "DB1,X1105.0",
+                "name": "M09"
+            },
+            {
+                "addr": "DB1,X1105.1",
+                "name": "M10"
+            },
+            {
+                "addr": "DB1,X1105.2",
+                "name": "M11"
+            },
+            {
+                "addr": "DB1,X1105.3",
+                "name": "M12"
+            },
+            {
+                "addr": "DB1,X1105.4",
+                "name": "M13"
+            },
+            {
+                "addr": "DB1,X1105.5",
+                "name": "M14"
+            },
+            {
+                "addr": "DB1,X1105.6",
+                "name": "M15"
+            },
+            {
+                "addr": "DB1,X1105.7",
+                "name": "M16"
+            },
+            {
+                "addr": "DB1,X1105.0",
+                "name": "M17"
+            },
+            {
+                "addr": "DB1,X1105.1",
+                "name": "M18"
+            },
+            {
+                "addr": "DB1,X1105.2",
+                "name": "M19"
+            },
+            {
+                "addr": "DB1,X1105.3",
+                "name": "M20"
+            },
+            {
+                "addr": "DB1,X1105.4",
+                "name": "M21"
+            },
+            {
+                "addr": "DB1,X1105.5",
+                "name": "M22"
+            },
+            {
+                "addr": "DB1,X1105.6",
+                "name": "M23"
+            },
+            {
+                "addr": "DB1,X1105.7",
+                "name": "M24"
+            },
+            {
+                "addr": "DB1,X1106.0",
+                "name": "M25 LOGO Screen White"
+            },
+            {
+                "addr": "DB1,X1106.1",
+                "name": "M26 TDE Screen White"
+            },
+            {
+                "addr": "DB1,X1106.2",
+                "name": "M27 CharSet"
+            },
+            {
+                "addr": "DB1,X1106.3",
+                "name": "M28 LOGO Screen Orange"
+            },
+            {
+                "addr": "DB1,X1106.4",
+                "name": "M29 LOGO Screen Red"
+            },
+            {
+                "addr": "DB1,X1106.5",
+                "name": "M30 TDE Screen Orange"
+            },
+            {
+                "addr": "DB1,X1106.6",
+                "name": "M31 TDE Screen Red"
+            },
+            {
+                "addr": "DB1,X1106.7",
+                "name": "M32"
+            },
+            {
+                "addr": "DB1,X1106.0",
+                "name": "M33...64"
+            },
+            {
+                "addr": "DB1,INT1118",
+                "name": "AM1"
+            },
+            {
+                "addr": "DB1,INT1120",
+                "name": "AM2"
+            },
+            {
+                "addr": "DB1,INT1122",
+                "name": "AM3"
+            },
+            {
+                "addr": "DB1,INT1124",
+                "name": "AM4"
+            },
+            {
+                "addr": "DB1,INT1126",
+                "name": "AM5...64"
+            },
+            {
+                "addr": "DB1,X1246.0",
+                "name": "NI1"
+            },
+            {
+                "addr": "DB1,X1246.1",
+                "name": "NI1..64"
+            },
+            {
+                "addr": "DB1,X1390.0",
+                "name": "NQ1"
+            },
+            {
+                "addr": "DB1,X1390.1",
+                "name": "NQ1..64"
+            },
+            {
+                "addr": "DB1,INT1262",
+                "name": "NAI1"
+            },
+            {
+                "addr": "DB1,INT1264",
+                "name": "NAI1...64"
+            },
+            {
+                "addr": "DB1,INT1406",
+                "name": "NAQ1"
+            },
+            {
+                "addr": "DB1,INT1408",
+                "name": "NAQ2...64"
+            }
+        ]
+    },
+    {
+        "id": "9fb0176d78ce5d29",
+        "type": "modbus-client",
+        "name": "",
+        "clienttype": "serial",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "127.0.0.1",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "COM14",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "57600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": 2,
+        "commandDelay": 1,
+        "clientTimeout": 1000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "393b106f55a39217",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "tombadorDeTijolo",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "44ecb9d0.ddb268",
+        "type": "rbe",
+        "z": "c635959e.1e0438",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "property": "payload",
+        "x": 590,
+        "y": 40,
+        "wires": [
+            [
+                "a3c7643a.335008"
+            ]
+        ]
+    },
+    {
+        "id": "a962c18a.3d478",
+        "type": "change",
+        "z": "c635959e.1e0438",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 80,
+        "wires": [
+            [
+                "44ecb9d0.ddb268"
+            ]
+        ]
+    },
+    {
+        "id": "a3c7643a.335008",
+        "type": "switch",
+        "z": "c635959e.1e0438",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8c8f9702.5b0bf8",
+        "type": "switch",
+        "z": "c635959e.1e0438",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 230,
+        "y": 40,
+        "wires": [
+            [
+                "44ecb9d0.ddb268"
+            ]
+        ]
+    },
+    {
+        "id": "ac7715f.6d889e8",
+        "type": "switch",
+        "z": "c635959e.1e0438",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 230,
+        "y": 80,
+        "wires": [
+            [
+                "a962c18a.3d478"
+            ]
+        ]
+    },
+    {
+        "id": "de665f4.8a9612",
+        "type": "s7 in",
+        "z": "7a88f7f5.94823",
+        "endpoint": "ab1b0b4c.23e",
+        "mode": "all-split",
+        "variable": "",
+        "diff": true,
+        "name": "LOGO8",
+        "x": 270,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9f0af106f8ba0e61",
+        "type": "inject",
+        "z": "93d4de9decc017df",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "50b1871a8bdab387"
+            ]
+        ]
+    },
+    {
+        "id": "a00b6bb75a13d71b",
+        "type": "mysql",
+        "z": "93d4de9decc017df",
+        "mydb": "393b106f55a39217",
+        "name": "",
+        "x": 550,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "50b1871a8bdab387",
+        "type": "function",
+        "z": "93d4de9decc017df",
+        "name": "inserir peso tijolo",
+        "func": "let aleatorio = Math.random() + 2;\nlet insert = \"INSERT INTO pesotijolo(peso) VALUES ('\"+aleatorio +\"');\"\nmsg.topic = insert; \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "a00b6bb75a13d71b"
+            ]
+        ]
+    },
+    {
+        "id": "a01ee2fc8596d3f6",
+        "type": "comment",
+        "z": "93d4de9decc017df",
+        "name": "insere peso no banco de dados",
+        "info": "",
+        "x": 190,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "3b2fa1b87cfe6ce2",
+        "type": "inject",
+        "z": "93d4de9decc017df",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "275b22c7edd5b475"
+            ]
+        ]
+    },
+    {
+        "id": "5ba5fbba494f2721",
+        "type": "mysql",
+        "z": "93d4de9decc017df",
+        "mydb": "393b106f55a39217",
+        "name": "",
+        "x": 550,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "275b22c7edd5b475",
+        "type": "function",
+        "z": "93d4de9decc017df",
+        "name": "máquina ligada",
+        "func": "let insert = \"INSERT INTO maquinastatus(ligadodesligado, epochtimestamp) VALUES ('1', UNIX_TIMESTAMP())\"\nmsg.topic = insert; \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 260,
+        "wires": [
+            [
+                "5ba5fbba494f2721"
+            ]
+        ]
+    },
+    {
+        "id": "45f18f10fca29992",
+        "type": "comment",
+        "z": "93d4de9decc017df",
+        "name": "insere status da maquina (liga/desliga) no banco de dados",
+        "info": "",
+        "x": 270,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "81c0d020852d7489",
+        "type": "inject",
+        "z": "93d4de9decc017df",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 320,
+        "wires": [
+            [
+                "297a3cd56433e31f"
+            ]
+        ]
+    },
+    {
+        "id": "297a3cd56433e31f",
+        "type": "function",
+        "z": "93d4de9decc017df",
+        "name": "máquina desligada",
+        "func": "let insert = \"INSERT INTO maquinastatus(ligadodesligado, epochtimestamp) VALUES ('0', UNIX_TIMESTAMP())\"\nmsg.topic = insert; \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 320,
+        "wires": [
+            [
+                "5ba5fbba494f2721"
+            ]
+        ]
+    },
+    {
+        "id": "ecb98ce7c63e831c",
+        "type": "comment",
+        "z": "93d4de9decc017df",
+        "name": "insere dados de tijolos com/sem defeito",
+        "info": "",
+        "x": 210,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "3a3c6566929c04fd",
+        "type": "inject",
+        "z": "93d4de9decc017df",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "d405f252d401dd47"
+            ]
+        ]
+    },
+    {
+        "id": "928e519982b40f88",
+        "type": "mysql",
+        "z": "93d4de9decc017df",
+        "mydb": "393b106f55a39217",
+        "name": "",
+        "x": 550,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d405f252d401dd47",
+        "type": "function",
+        "z": "93d4de9decc017df",
+        "name": "tijolo aprovado",
+        "func": "let insert = \"INSERT INTO tijoloclassificacao(aprovado, reprovado, epochtimestamp) VALUES ('1', '0', UNIX_TIMESTAMP())\";\nmsg.topic = insert; \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 480,
+        "wires": [
+            [
+                "928e519982b40f88"
+            ]
+        ]
+    },
+    {
+        "id": "9f4825720b5a0746",
+        "type": "inject",
+        "z": "93d4de9decc017df",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 540,
+        "wires": [
+            [
+                "a1daebc0fa650361"
+            ]
+        ]
+    },
+    {
+        "id": "a1daebc0fa650361",
+        "type": "function",
+        "z": "93d4de9decc017df",
+        "name": "tijolo reprovado",
+        "func": "let insert = \"INSERT INTO tijoloclassificacao(aprovado, reprovado, epochtimestamp) VALUES ('0', '1', UNIX_TIMESTAMP())\";\nmsg.topic = insert; \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 540,
+        "wires": [
+            [
+                "928e519982b40f88"
+            ]
+        ]
+    },
+    {
+        "id": "bf9ee45b6b600c61",
+        "type": "tcp in",
+        "z": "d09040bc4df741cd",
+        "name": "",
+        "server": "client",
+        "host": "127.0.0.1",
+        "port": "5000",
+        "datamode": "stream",
+        "datatype": "buffer",
+        "newline": "",
+        "topic": "teste",
+        "trim": false,
+        "base64": false,
+        "tls": "",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "f5d9fc7ad59a4af8"
+            ]
+        ]
+    },
+    {
+        "id": "3eb3f508bbb5eb03",
+        "type": "function",
+        "z": "d09040bc4df741cd",
+        "name": "function 3",
+        "func": "if(msg.payload == true){\n    flow.set('sensorPresencaCamera', 1);\n} else {\n    flow.set('sensorPresencaCamera', 0);\n}\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f5d9fc7ad59a4af8",
+        "type": "function",
+        "z": "d09040bc4df741cd",
+        "name": "function 5",
+        "func": "// Obtém o valor atual do sinal\nlet sinalAtual = flow.get('sensorPresencaCamera');\n\n// Recupera o valor anterior do contexto\nlet sinalAnterior = context.get('sinalAnterior') || 0; // Inicializa como 0 se for undefined\n\nlet statusTijolo = null;\n\nif (sinalAnterior === 0 && sinalAtual === 1) {\n    // Reseta o array de status do tijolo na borda de subida\n    flow.set('arrayStatusTijolo', []);\n} else if (sinalAnterior === 1 && sinalAtual === 0){\n    // calcula quantas ocorrencias de tijolo bom, tijolo ruim ou sem tijolo foram detectados\n    let array = flow.get('arrayStatusTijolo') || [];\n    let qnt_tijolo_bom = array.filter(item => item === \"tijolo_bom_detectado\").length;\n    let qnt_tijolo_ruim = array.filter(item => item === \"tijolo_ruim_detectado\").length;\n    let qnt_nada_detectado = array.filter(item => item === \"nenhum_status\").length;\n\n    // verifica se a quantidade de detecções de tijolos bons\n    // é maior que a quantidade de detecções de tijolos ruins\n    if(qnt_tijolo_bom >= qnt_tijolo_ruim + qnt_nada_detectado){\n        statusTijolo = \"tijoloAprovado\";\n    }else{\n        statusTijolo = \"tijoloReprovado\";\n    }\n\n    // zera array de status do tijolo\n    flow.set('arrayStatusTijolo', []);\n}\n\n// Adiciona o status do tijolo ao array se o sinalAtual for 1\nif (sinalAtual === 1) {\n    let array = flow.get('arrayStatusTijolo') || []; // Garante que o array exista\n    array.push(msg.payload.toString()); // Adiciona o valor atual\n    flow.set('arrayStatusTijolo', array); // Atualiza o array no fluxo\n}\n\n// se o sinalAtual está em 0\nif (sinalAtual === 0){\n    ;\n}\n\n// Atualiza o valor anterior no contexto\ncontext.set('sinalAnterior', sinalAtual);\n\nif(statusTijolo != null){\n    msg.payload = statusTijolo;\n    return msg;\n}else{\n    return ;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 300,
+        "wires": [
+            [
+                "6237ff369da60a06"
+            ]
+        ]
+    },
+    {
+        "id": "1ae4e6af8c0d5c5c",
+        "type": "comment",
+        "z": "d09040bc4df741cd",
+        "name": "set/reset sinal de sensor de presença da camera",
+        "info": "",
+        "x": 300,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "6237ff369da60a06",
+        "type": "switch",
+        "z": "d09040bc4df741cd",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "tijoloAprovado",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "tijoloReprovado",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 510,
+        "y": 300,
+        "wires": [
+            [
+                "cab5d91ade311dc7",
+                "685703f94ef49ace"
+            ],
+            [
+                "88b0672d3008693a",
+                "cab5d91ade311dc7",
+                "574a1d2d9cea65f0"
+            ]
+        ]
+    },
+    {
+        "id": "23d05fe25b311771",
+        "type": "s7 out",
+        "z": "d09040bc4df741cd",
+        "endpoint": "ab1b0b4c.23e",
+        "variable": "M03",
+        "name": "Tijolo Ruim",
+        "x": 850,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "8e45ce530c4a228b",
+        "type": "s7 in",
+        "z": "d09040bc4df741cd",
+        "endpoint": "ab1b0b4c.23e",
+        "mode": "single",
+        "variable": "M01",
+        "diff": true,
+        "name": "Trigger Camera",
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "3eb3f508bbb5eb03"
+            ]
+        ]
+    },
+    {
+        "id": "88b0672d3008693a",
+        "type": "trigger",
+        "z": "d09040bc4df741cd",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "3",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 660,
+        "y": 580,
+        "wires": [
+            [
+                "23d05fe25b311771"
+            ]
+        ]
+    },
+    {
+        "id": "cab5d91ade311dc7",
+        "type": "debug",
+        "z": "d09040bc4df741cd",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9392ea6a10626087",
+        "type": "mysql",
+        "z": "d09040bc4df741cd",
+        "mydb": "393b106f55a39217",
+        "name": "",
+        "x": 930,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "685703f94ef49ace",
+        "type": "function",
+        "z": "d09040bc4df741cd",
+        "name": "tijolo aprovado",
+        "func": "let insert = \"INSERT INTO tijoloclassificacao(aprovado, reprovado, epochtimestamp) VALUES ('1', '0', UNIX_TIMESTAMP())\";\nmsg.topic = insert; \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 280,
+        "wires": [
+            [
+                "9392ea6a10626087"
+            ]
+        ]
+    },
+    {
+        "id": "574a1d2d9cea65f0",
+        "type": "function",
+        "z": "d09040bc4df741cd",
+        "name": "tijolo reprovado",
+        "func": "let insert = \"INSERT INTO tijoloclassificacao(aprovado, reprovado, epochtimestamp) VALUES ('0', '1', UNIX_TIMESTAMP())\";\nmsg.topic = insert; \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 340,
+        "wires": [
+            [
+                "9392ea6a10626087"
+            ]
+        ]
+    },
+    {
+        "id": "48be1e57dedb1113",
+        "type": "comment",
+        "z": "d09040bc4df741cd",
+        "name": "detecta e decide se é um tijolo aprovado ou reprovado",
+        "info": "",
+        "x": 280,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "add64bd70af412ed",
+        "type": "comment",
+        "z": "d09040bc4df741cd",
+        "name": "envia dados para o CLP expulsar o tijolo",
+        "info": "",
+        "x": 740,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "df9c42771df475bf",
+        "type": "comment",
+        "z": "d09040bc4df741cd",
+        "name": "salva dados no banco de dados",
+        "info": "",
+        "x": 770,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "eb7e45662c81fcc8",
+        "type": "mysql",
+        "z": "fef6a66586785c38",
+        "mydb": "393b106f55a39217",
+        "name": "",
+        "x": 930,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c8edf12d417786cb",
+        "type": "function",
+        "z": "fef6a66586785c38",
+        "name": "máquina ligada",
+        "func": "let insert = \"INSERT INTO maquinastatus(ligadodesligado, epochtimestamp) VALUES ('1', UNIX_TIMESTAMP())\"\nmsg.topic = insert; \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 240,
+        "wires": [
+            [
+                "eb7e45662c81fcc8"
+            ]
+        ]
+    },
+    {
+        "id": "97df83a753ed093e",
+        "type": "comment",
+        "z": "fef6a66586785c38",
+        "name": "insere status da maquina (liga/desliga) no banco de dados",
+        "info": "",
+        "x": 290,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "0f8eaa814e4e5d7d",
+        "type": "function",
+        "z": "fef6a66586785c38",
+        "name": "máquina desligada",
+        "func": "let insert = \"INSERT INTO maquinastatus(ligadodesligado, epochtimestamp) VALUES ('0', UNIX_TIMESTAMP())\"\nmsg.topic = insert; \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 300,
+        "wires": [
+            [
+                "eb7e45662c81fcc8"
+            ]
+        ]
+    },
+    {
+        "id": "2cf1249b4e115a72",
+        "type": "s7 in",
+        "z": "fef6a66586785c38",
+        "endpoint": "ab1b0b4c.23e",
+        "mode": "single",
+        "variable": "M11",
+        "diff": true,
+        "name": "Maquina Ligada Desligada",
+        "x": 210,
+        "y": 260,
+        "wires": [
+            [
+                "d2659d18a3a8af5e"
+            ]
+        ]
+    },
+    {
+        "id": "d2659d18a3a8af5e",
+        "type": "switch",
+        "z": "fef6a66586785c38",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 410,
+        "y": 260,
+        "wires": [
+            [
+                "c8edf12d417786cb"
+            ],
+            [
+                "0f8eaa814e4e5d7d"
+            ]
+        ]
+    },
+    {
+        "id": "8c23c3d68253e73a",
+        "type": "mysql",
+        "z": "78ba90d4f2125baf",
+        "mydb": "393b106f55a39217",
+        "name": "",
+        "x": 590,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dbc9152b7d524fb5",
+        "type": "function",
+        "z": "78ba90d4f2125baf",
+        "name": "inserir peso tijolo",
+        "func": "let aleatorio = Math.random() + 2;\nlet insert = \"INSERT INTO pesotijolo(peso) VALUES ('\"+aleatorio +\"');\"\nmsg.topic = insert; \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "8c23c3d68253e73a"
+            ]
+        ]
+    },
+    {
+        "id": "88d22ddab884c130",
+        "type": "s7 in",
+        "z": "78ba90d4f2125baf",
+        "endpoint": "ab1b0b4c.23e",
+        "mode": "single",
+        "variable": "I02 AI04",
+        "diff": true,
+        "name": "Esteira 1 acionada",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "dbc9152b7d524fb5"
+            ]
+        ]
+    }
+]
